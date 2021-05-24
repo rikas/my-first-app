@@ -11,6 +11,27 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="nabvar" style="background: #cecece">
+      <%= link_to 'Home', root_path %> |
+      <%= link_to 'Contacts', contacts_path %> |
+      <%= link_to 'About', about_path %>
+    </div>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <footer>
+      <form action="/contacts" method="get">
+        <input
+          value="<%= params[:member] %>"
+          type="text"
+          name="member"
+          placeholder="Who are you looking for?">
+        <input type="submit">
+      </form>
+
+      Made by me on <%= Date.today %>
+    </footer>
   </body>
 </html>
